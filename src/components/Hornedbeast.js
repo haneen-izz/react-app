@@ -1,19 +1,40 @@
-import React from "react";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+
 class Hornedbeast extends React.Component {
-  render() {
+  constructor(props) {​​​​​​​​
+    super(props);
+    this.state = {​​​​​​​​
+    numOfclick:0,
+        }​​​​​​​​;
+        }​​​​​​​​
+     
+    increasenumOfclick = () => {​​​​​​​​
+    this.setState({​​​​​​​​
+    numOfclick:this.state.numOfclick + 1,
+        }​​​​​​​​);
+      }​​​​​​​​;
+    render() {​​​​​​​​
     return (
-      <div>
-        <h2>{this.props.title} </h2>
-        <img
-          src={this.props.img}
-          alt={this.props.keyword}
-          title={this.props.horns}
-        />
-
-        <p>{this.props.description}</p>
-      </div>
-    );
-  }
-}
-
-export default Hornedbeast;
+    <div>
+    <Col>
+    <Card className= "card" style={​​​​​​​​{​​​​​​​​ width:"18rem" }​​​​​​​​}​​​​​​​​>
+    <Card.img className="cardi" variant="top"src={​​​​​​​​this.props.img}​​​​​​​​/> 
+    <Card.Body>
+    <Card.Title> {​​​​​​​​this.props.title}​​​​​​​​ </Card.Title>
+    <Card.Text> number of clicks {​​​​​​​​this.state.clickNum} ​​​​​​​​</Card.Text>
+    <Button className="cardB" onClick = {​​​​​​​​this.increasenumOfclick}​​​​​​​​ variant="primary">
+     
+    Vote{​​​​​​​​" "}​​​​​​​​
+    </Button>
+    </Card.Body>
+    </Card>
+    </Col>
+    </div>
+        );
+      }​​​​​​​​
+    }​​​​​​​​
+    export default Hornedbeast;
