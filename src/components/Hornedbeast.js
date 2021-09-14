@@ -30,10 +30,7 @@ class Hornedbeast extends React.Component {
                 {" "}
                 number of clicks {this.state.numOfclick} ​​​​​​​​
               </Card.Text>
-              <Button
-                onClick={this.increasenumOfclick}
-                variant="primary"
-              >
+              <Button onClick={this.increasenumOfclick} variant="primary">
                 Vote ​​​​​​​​
               </Button>
             </Card.Body>
