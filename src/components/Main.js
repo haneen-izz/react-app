@@ -1,9 +1,16 @@
-import React from 'react';
-import Hornedbeast from './Hornedbeast';
-import data from './data.json';
-import Row from 'react-bootstrap/Row';
+import React from "react";
+import Hornedbeast from "./Hornedbeast";
+import data from "./data.json";
+import Row from "react-bootstrap/Row";
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+  }
+
   render() {
     return (
       <div>
@@ -14,7 +21,7 @@ class Main extends React.Component {
                 key={index}
                 title={val.title}
                 img={val.image_url}
-                description={val.title}
+                description={val.description}
                 keyWord={val.leyWord}
                 horns={val.horns}
               />
