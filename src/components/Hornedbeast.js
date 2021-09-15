@@ -46,7 +46,6 @@ class Hornedbeast extends React.Component {
                   open
                   onClick={this.handleShowDialog}
                 >
-
                   <img
                     className="image"
                     src={this.props.img}
@@ -57,9 +56,6 @@ class Hornedbeast extends React.Component {
                     }}
                     onClick={this.handleShowDialog}
                   />
-      
-
-                
                 </dialog>
               )}
 
@@ -69,44 +65,12 @@ class Hornedbeast extends React.Component {
               <Button onClick={this.increasenumOfclick} variant="primary">
                 Vote
               </Button>
-
-              <button
-                style={{ margin: "10px" }}
-                type="button"
-                class="btn btn-info btn-lg"
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                Open Modal
-              </button>
+              <Button variant="primary" onClick={this.props.showModal}>
+                select beast
+              </Button>
             </Card.Body>
           </Card>
         </Col>
-
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                  &times;
-                </button>
-                <h4 class="modal-title">Modal Header</h4>
-              </div>
-              <div class="modal-body">
-                <p>Some text in the modal.</p>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-default"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
