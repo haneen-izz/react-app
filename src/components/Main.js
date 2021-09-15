@@ -2,6 +2,7 @@ import React from "react";
 import Hornedbeast from "./Hornedbeast";
 import data from "./data.json";
 import Row from "react-bootstrap/Row";
+import SelectedBeast from "./SelectedBeast.js";
 
 class Main extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Main extends React.Component {
                 description={val.description}
                 keyWord={val.leyWord}
                 horns={val.horns}
+                
               />
             );
           })}
