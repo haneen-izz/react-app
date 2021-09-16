@@ -36,7 +36,8 @@ class Main extends React.Component {
             </li>;
             return (
               <>
-                <Hornedbeast
+                return <Hornedbeast
+                  showHandler={this.showHandler}
                   key={index}
                   title={val.title}
                   img={val.image_url}
