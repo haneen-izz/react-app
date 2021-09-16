@@ -38,7 +38,6 @@ class Hornedbeast extends React.Component {
               onClick={this.handleShowDialog}
               style={{ width: '100%', height: '160px' }}
               showModal= {this.showModal}
-              style={{ width: "150px" }}
             />
 
             <Card.Body>
