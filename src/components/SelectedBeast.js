@@ -1,6 +1,6 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, Button } from "react-bootstrap/";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button } from 'react-bootstrap/';
 
 class SelectedBeast extends React.Component {
   render() {
@@ -8,16 +8,18 @@ class SelectedBeast extends React.Component {
       <>
         <Modal show={this.props.showModal} onHide={this.props.closeHandler}>
           <Modal.Header closeButton>
-            <Modal.Title>Beast</Modal.Title>
+            <Modal.Title>{this.props.data.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            src={this.props.image_url}
-            title={this.props.title}
-            description={this.props.description}
-            horns={this.props.horns}
+            <img
+              src={this.props.data.image_url}
+              style={{ width: '100%', height: '300px' }}
+            />
+            description:
+            {this.props.data.description}
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.props.closeHandler}>
+            <Button variant='secondary' onClick={this.props.closeHandler}>
               Close
             </Button>
           </Modal.Footer>

@@ -1,8 +1,8 @@
-import React from "react";
-import Hornedbeast from "./Hornedbeast";
-import data from "./data.json";
-import Row from "react-bootstrap/Row";
-import SelectedBeast from "./SelectedBeast";
+import React from 'react';
+import Hornedbeast from './Hornedbeast';
+import data from './data.json';
+import Row from 'react-bootstrap/Row';
+import SelectedBeast from './SelectedBeast';
 
 class Main extends React.Component {
   constructor(props) {
@@ -10,13 +10,15 @@ class Main extends React.Component {
     this.state = {
       isOpen: false,
       showModal: false,
+      data: {},
     };
   }
 
-  showHandler = async (event) => {
-    event.preventDefault();
-    await this.setState({
+  showHandler = (title) => {
+    let element = data.find((item) => item.title === title);
+    this.setState({
       showModal: true,
+      data: element,
     });
   };
   closeHandler = () => {
@@ -28,7 +30,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Row xs={6} md={2} className="g-4">
+        <Row xs={6} md={5} className='g-4'>
           {data.map((val, index) => {
             return (
               <>
@@ -40,14 +42,16 @@ class Main extends React.Component {
                   description={val.description}
                   keyWord={val.leyWord}
                   horns={val.horns}
-                />
-                <SelectedBeast
-                  showModal={this.state.showModal}
-                  closeHandler={this.closeHandler}
+                  handleShow={this.showHandler}
                 />
               </>
             );
           })}
+          <SelectedBeast
+            showModal={this.state.showModal}
+            closeHandler={this.closeHandler}
+            data={this.state.data}
+          />
         </Row>
       </div>
     );
