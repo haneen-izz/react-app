@@ -1,8 +1,8 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
 
 class Hornedbeast extends React.Component {
   constructor(props) {
@@ -21,40 +21,41 @@ class Hornedbeast extends React.Component {
   state = { isOpen: false };
 
   handleShowDialog = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-    console.log('cliked');
+    // this.setState({ isOpen: !this.state.isOpen });
+    // console.log("cliked");
+    this.props.handleShow(this.props.title);
   };
 
   render() {
     return (
       <div>
         <Col>
-          <Card className='card'>
+          <Card className="card">
             <Card.Img
-              className='cardi'
-              variant='top'
+              className="cardi"
+              variant="top"
               src={this.props.img}
               onClick={this.handleShowDialog}
-              style={{ width: '150px' }}
+              style={{ width: "160px" }}
             />
 
             <Card.Body>
               {this.state.isOpen && (
                 <dialog
-                  className='dialog'
-                  style={{ position: 'relative', margin: '150px' }}
-                  open
-                  onClick={this.handleShowDialog}
+                  // className="dialog"
+                  // style={{ position: "relative", margin: "150px"}}
+                  // open
+                  // onClick={this.handleShowDialog}
                 >
                   <img
-                    className='image'
-                    src={this.props.img}
+                    src={this.props.image_url}
                     style={{
-                      position: 'relative',
-                      margin: '0px',
-                      width: '400px',
+                      margin: "10px",
+                      padding: "100px" , 
                     }}
                     onClick={this.handleShowDialog}
+                    description = {this.props.description}
+
                   />
                 </dialog>
               )}
@@ -62,11 +63,8 @@ class Hornedbeast extends React.Component {
               <Card.Title>{this.props.title}</Card.Title>
               <Card.Text> number of clicks {this.state.numOfclick}</Card.Text>
               <Card.Text> {this.props.description}</Card.Text>
-              <Button onClick={this.increasenumOfclick} variant='primary'>
+              <Button onClick={this.increasenumOfclick} variant="primary">
                 Vote
-              </Button>
-              <Button variant='primary' onClick={this.props.showHandler}>
-                select beast
               </Button>
             </Card.Body>
           </Card>

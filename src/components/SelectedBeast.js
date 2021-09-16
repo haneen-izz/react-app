@@ -8,11 +8,10 @@ class SelectedBeast extends React.Component {
       <>
         <Modal show={this.props.showModal} onHide={this.props.closeHandler}>
           <Modal.Header closeButton>
-            <Modal.Title>Beast</Modal.Title>
+            <Modal.Title>{this.props.data.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img src={this.props.img} title={this.props.title} />
-            description={this.props.description}/> horns={this.props.horns}
+            <img src={this.props.data.image_url} />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.props.closeHandler}>
