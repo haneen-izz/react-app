@@ -32,7 +32,8 @@ class Main extends React.Component {
           {data.map((val, index) => {
             return (
               <>
-                <Hornedbeast
+                return <Hornedbeast
+                  showHandler={this.showHandler}
                   key={index}
                   title={val.title}
                   img={val.image_url}

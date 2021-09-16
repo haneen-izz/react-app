@@ -35,6 +35,7 @@ class Hornedbeast extends React.Component {
               variant="top"
               src={this.props.img}
               onClick={this.handleShowDialog}
+              showModal= {this.showModal}
               style={{ width: "150px" }}
             />
 
@@ -58,7 +59,6 @@ class Hornedbeast extends React.Component {
                   />
                 </dialog>
               )}
-
               <Card.Title>{this.props.title}</Card.Title>
               <Card.Text> number of clicks {this.state.numOfclick}</Card.Text>
               <Card.Text> {this.props.description}</Card.Text>
