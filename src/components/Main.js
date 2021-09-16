@@ -32,6 +32,8 @@ class Main extends React.Component {
       <div>
         <Row xs={6} md={5} className='g-4'>
           {data.map((val, index) => {
+            <li key={val.toString()}>{val}
+            </li>;
             return (
               <>
                 <Hornedbeast
