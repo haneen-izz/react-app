@@ -2,33 +2,83 @@ import React from "react";
 import Hornedbeast from "./Hornedbeast";
 import data from "./data.json";
 import Row from "react-bootstrap/Row";
-import SelectedBeast from "./SelectedBeast.js";
+import Form from "react-bootstrap/Form";
+import SelectedBeast from "./SelectedBeast";
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
+      showModal: false,
+      data: {},
     };
   }
+  showHandler = (title) => {
+    let element = data.find((item) => item.title === title);
+    this.setState({
+      showModal: true,
+      data: element,
+    });
+  };
+  closeHandler = () => {
+    this.setState({
+      showModal: false,
+    });
+  };
+  filteredImages = (horns) => {
+    this.setState({
+      data: horns,
+    });
+  };
+  filter = (event) => {
+    let numberOfHorns = event.target.value;
+    let AllHorns = data;
+    let newHorns;
 
+    if (numberOfHorns) {
+      newHorns = AllHorns.filter((item) => {
+        if (item.horns === numberOfHorns) return item;
+      });
+    } else {
+      newHorns = AllHorns;
+    }
+    this.filteredImages(newHorns);
+  };
   render() {
     return (
       <div>
-        <Row xs={6} md={2} className="g-4">
+        <Form.Select aria-label="Default select example" onChange ={this.filter}>
+          <option>Open this select menu</option>
+          <option value="">All</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+          <option value="100">Wow</option>
+        </Form.Select>
+        <br />
+        <Row xs={6} md={5} className="g-4">
           {data.map((val, index) => {
             return (
-              <Hornedbeast
-                key={index}
-                title={val.title}
-                img={val.image_url}
-                description={val.description}
-                keyWord={val.leyWord}
-                horns={val.horns}
-                
-              />
+              <>
+                <Hornedbeast
+                  showHandler={this.showHandler}
+                  key={index}
+                  title={val.title}
+                  img={val.image_url}
+                  description={val.description}
+                  keyWord={val.keyWord}
+                  horns={val.horns}
+                  handleShow={this.showHandler}
+                />
+              </>
             );
           })}
+          <SelectedBeast
+            showModal={this.state.showModal}
+            closeHandler={this.closeHandler}
+            data={this.state.data}
+          />
         </Row>
       </div>
     );
