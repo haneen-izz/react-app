@@ -49,7 +49,11 @@ class Hornedbeast extends React.Component {
                 // onClick={this.handleShowDialog}
                 ></dialog>
               )}
-              <Card.Title>{this.props.title}</Card.Title>
+              <Card.Title 
+              style = {{textAlign:'center'}}
+              >
+                {this.props.title}
+                </Card.Title>
               <Card.Text> number of clicks {this.state.numOfclick}</Card.Text>
               <Card.Text> {this.props.description}</Card.Text>
               <Button onClick={this.increasenumOfclick} variant='primary'>
