@@ -11,7 +11,7 @@ class Main extends React.Component {
     this.state = {
       isOpen: false,
       showModal: false,
-      data: {},
+      data: data,
     };
   }
   showHandler = (title) => {
@@ -26,31 +26,29 @@ class Main extends React.Component {
       showModal: false,
     });
   };
+
   filteredImages = (horns) => {
     this.setState({
       data: horns,
     });
   };
   filter = (event) => {
-    let numberOfHorns = event.target.value;
+    let numberOfHorns = parseInt(event.target.value);
     let AllHorns = data;
     let newHorns;
 
-    if (numberOfHorns) {
-      newHorns = AllHorns.filter((item) => {
-        if (item.horns === numberOfHorns) return item;
-      });
-    } else {
-      newHorns = AllHorns;
-    }
+    
+      newHorns = AllHorns.filter((item) => item.horns === numberOfHorns
+    
+      )
     this.filteredImages(newHorns);
   };
   render() {
     return (
       <div>
-        <Form.Select aria-label="Default select example" onChange ={this.filter}>
+        <Form.Select aria-label="Default select example" onChange={this.filter}>
           <option>Open this select menu</option>
-          <option value="">All</option>
+          <option value="0">All</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -58,7 +56,7 @@ class Main extends React.Component {
         </Form.Select>
         <br />
         <Row xs={6} md={5} className="g-4">
-          {data.map((val, index) => {
+          {this.state.data.map((val, index) => {
             return (
               <>
                 <Hornedbeast

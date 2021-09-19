@@ -57,7 +57,7 @@ class Hornedbeast extends React.Component {
               > {this.props.horns}
               </Card.Text>
               <Button onClick={this.increasenumOfclick} variant="primary">
-                Vote
+                vote
               </Button>
             </Card.Body>
           </Card>
