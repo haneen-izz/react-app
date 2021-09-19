@@ -1,8 +1,8 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
 
 class Hornedbeast extends React.Component {
   constructor(props) {
@@ -29,14 +29,14 @@ class Hornedbeast extends React.Component {
   render() {
     return (
       <div>
-        <Col style={{ width: "250px", height: "400px" }}>
-          <Card className="card">
+        <Col style={{ width: '250px', height: '400px' }}>
+          <Card className='card'>
             <Card.Img
-              className="cardi"
-              variant="top"
+              className='cardi'
+              variant='top'
               src={this.props.img}
               onClick={this.handleShowDialog}
-              style={{ width: "100%", height: "125px" }}
+              style={{ width: '100%', height: '125px' }}
               showModal={this.showModal}
             />
 
@@ -51,12 +51,9 @@ class Hornedbeast extends React.Component {
               )}
               <Card.Title>{this.props.title}</Card.Title>
               <Card.Text> number of clicks {this.state.numOfclick}</Card.Text>
-              <Card.Text> {this.props.description}
-              </Card.Text>
-              <Card.Text
-              > {this.props.horns}
-              </Card.Text>
-              <Button onClick={this.increasenumOfclick} variant="primary">
+              <Card.Text> {this.props.description}</Card.Text>
+              <Card.Text> {this.props.horns}</Card.Text>
+              <Button onClick={this.increasenumOfclick} variant='primary'>
                 vote
               </Button>
             </Card.Body>
