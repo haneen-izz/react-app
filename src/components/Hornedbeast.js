@@ -38,6 +38,8 @@ class Hornedbeast extends React.Component {
               onClick={this.handleShowDialog}
               style={{ width: '100%', height: '125px' }}
               showModal={this.showModal}
+              style={{ width: '100%', height: '160px' }}
+              showModal= {this.showModal}
             />
 
             <Card.Body>
@@ -55,6 +57,15 @@ class Hornedbeast extends React.Component {
               <Card.Text> {this.props.horns}</Card.Text>
               <Button onClick={this.increasenumOfclick} variant='primary'>
                 vote
+              <Card.Title 
+              style = {{textAlign:'center'}}
+              >
+                {this.props.title}
+                </Card.Title>
+              <Card.Text> number of clicks {this.state.numOfclick}</Card.Text>
+              <Card.Text> {this.props.description}</Card.Text>
+              <Button onClick={this.increasenumOfclick} variant='primary'>
+                Vote
               </Button>
             </Card.Body>
           </Card>

@@ -12,6 +12,7 @@ class Main extends React.Component {
       isOpen: false,
       showModal: false,
       data: data,
+      data: {},
     };
   }
   showHandler = (title) => {
@@ -26,7 +27,6 @@ class Main extends React.Component {
       showModal: false,
     });
   };
-
   filteredImages = (horns) => {
     this.setState({
       data: horns,
@@ -54,6 +54,24 @@ class Main extends React.Component {
         <br />
         <Row xs={6} md={5} className='g-4'>
           {this.state.data.map((val, index) => {
+  showHandler = (title) => {
+    let element = data.find((item) => item.title === title);
+    this.setState({
+      showModal: true,
+      data: element,
+    });
+  };
+  closeHandler = () => {
+    this.setState({
+      showModal: false,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Row xs={6} md={5} className='g-4'>
+          {data.map((val, index) => {
             return (
               <>
                 <Hornedbeast
@@ -63,6 +81,7 @@ class Main extends React.Component {
                   img={val.image_url}
                   description={val.description}
                   keyWord={val.keyWord}
+                  keyWord={val.leyWord}
                   horns={val.horns}
                   handleShow={this.showHandler}
                 />
